@@ -24,7 +24,6 @@ with open("books/frankenstein.txt") as f:
     file_contents = f.read()
 count_words, words = word_count(file_contents)
 count_lets, count_sort = let_count(words)
-print(count_words, count_lets)
 
 print(f"--- Begin report of books/frankenstein.txt ---")
 print(f"{count_words} words found in this document")
