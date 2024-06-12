@@ -15,10 +15,23 @@ def let_count(words):
             count[let] += 1
         else:
             count[let] = 1
-    return count
+    count_list = list(count.items())
+    count_sort = count_list.sort()
+    print(count_sort)
+    return count, count_sort
 
 with open("books/frankenstein.txt") as f:
     file_contents = f.read()
 count_words, words = word_count(file_contents)
-count_lets = let_count(words)
+count_lets, count_sort = let_count(words)
 print(count_words, count_lets)
+
+print(f"--- Begin report of books/frankenstein.txt ---")
+print(f"{count_words} words found in this document")
+for let in count_lets:
+    letter = let[0]
+    check = letter.isalpha()
+    if check == True:
+        print(f"The {letter} character was found {count_lets[f'{let}']} times")
+    else:
+        pass
